@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="JobProcessorService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SolidFrameworkService" />
+      <xsd:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/SolidFramework.Services.Plumbing" />
+      <xsd:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd4" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" />
+      <xsd:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" />
+      <xsd:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SolidFramework.Plumbing" />
+      <xsd:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SolidFramework.Converters" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IjobProcessorService_GetJobStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobStatus" />
+  </wsdl:message>
+  <wsdl:message name="IjobProcessorService_GetJobStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetJobStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownloadRequest">
+    <wsdl:part name="parameters" element="tns:DownloadRequest" />
+  </wsdl:message>
+  <wsdl:message name="RemoteFileInfo">
+    <wsdl:part name="parameters" element="tns:RemoteFileInfo" />
+  </wsdl:message>
+  <wsdl:message name="RemoteFileInfo_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+  </wsdl:message>
+  <wsdl:message name="RemoteWordJob">
+    <wsdl:part name="parameters" element="tns:RemoteWordJob" />
+  </wsdl:message>
+  <wsdl:message name="RemoteWordJob_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+    <wsdl:part name="WordEnvelope" element="tns:WordEnvelope" />
+  </wsdl:message>
+  <wsdl:message name="JobId">
+    <wsdl:part name="parameters" element="tns:JobId" />
+  </wsdl:message>
+  <wsdl:message name="RemoteExcelJob">
+    <wsdl:part name="parameters" element="tns:RemoteExcelJob" />
+  </wsdl:message>
+  <wsdl:message name="RemoteExcelJob_Headers">
+    <wsdl:part name="ExcelEnvelope" element="tns:ExcelEnvelope" />
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+  </wsdl:message>
+  <wsdl:message name="RemotePowerPointJob">
+    <wsdl:part name="parameters" element="tns:RemotePowerPointJob" />
+  </wsdl:message>
+  <wsdl:message name="RemotePowerPointJob_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+    <wsdl:part name="PowerPointEnvelope" element="tns:PowerPointEnvelope" />
+  </wsdl:message>
+  <wsdl:message name="RemotePdfAJob">
+    <wsdl:part name="parameters" element="tns:RemotePdfAJob" />
+  </wsdl:message>
+  <wsdl:message name="RemotePdfAJob_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+    <wsdl:part name="PdfAEnvelope" element="tns:PdfAEnvelope" />
+  </wsdl:message>
+  <wsdl:message name="RemoteTextJob">
+    <wsdl:part name="parameters" element="tns:RemoteTextJob" />
+  </wsdl:message>
+  <wsdl:message name="RemoteTextJob_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+    <wsdl:part name="TextEnvelope" element="tns:TextEnvelope" />
+  </wsdl:message>
+  <wsdl:message name="RemoteDataJob">
+    <wsdl:part name="parameters" element="tns:RemoteDataJob" />
+  </wsdl:message>
+  <wsdl:message name="RemoteDataJob_Headers">
+    <wsdl:part name="DataEnvelope" element="tns:DataEnvelope" />
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="Length" element="tns:Length" />
+  </wsdl:message>
+  <wsdl:message name="RemoteHtmlJob">
+    <wsdl:part name="parameters" element="tns:RemoteHtmlJob" />
+  </wsdl:message>
+  <wsdl:message name="RemoteHtmlJob_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="HtmlEnvelope" element="tns:HtmlEnvelope" />
+    <wsdl:part name="Length" element="tns:Length" />
+  </wsdl:message>
+  <wsdl:message name="RemoteImageJob">
+    <wsdl:part name="parameters" element="tns:RemoteImageJob" />
+  </wsdl:message>
+  <wsdl:message name="RemoteImageJob_Headers">
+    <wsdl:part name="FileName" element="tns:FileName" />
+    <wsdl:part name="ImageEnvelope" element="tns:ImageEnvelope" />
+    <wsdl:part name="Length" element="tns:Length" />
+  </wsdl:message>
+  <wsdl:portType name="IjobProcessorService">
+    <wsdl:operation name="GetJobStatus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IjobProcessorService/GetJobStatus" message="tns:IjobProcessorService_GetJobStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IjobProcessorService/GetJobStatusResponse" message="tns:IjobProcessorService_GetJobStatus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IjobProcessorService/DownloadFile" name="DownloadRequest" message="tns:DownloadRequest" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IjobProcessorService/DownloadFileResponse" name="RemoteFileInfo" message="tns:RemoteFileInfo" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadWordJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IjobProcessorService/UploadWordJob" name="RemoteWordJob" message="tns:RemoteWordJob" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IjobProcessorService/UploadWordJobResponse" name="JobId" message="tns:JobId" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadExcelJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IjobProcessorService/UploadExcelJob" name="RemoteExcelJob" message="tns:RemoteExcelJob" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IjobProcessorService/UploadExcelJobResponse" name="JobId" message="tns:JobId" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadPowerPointJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IjobProcessorService/UploadPowerPointJob" name="RemotePowerPointJob" message="tns:RemotePowerPointJob" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IjobProcessorService/UploadPowerPointJobResponse" name="JobId" message="tns:JobId" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadPdfAJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IjobProcessorService/UploadPdfAJob" name="RemotePdfAJob" message="tns:RemotePdfAJob" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IjobProcessorService/UploadPdfAJobResponse" name="JobId" message="tns:JobId" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadTextJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IjobProcessorService/UploadTextJob" name="RemoteTextJob" message="tns:RemoteTextJob" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IjobProcessorService/UploadTextJobResponse" name="JobId" message="tns:JobId" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadDataJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IjobProcessorService/UploadDataJob" name="RemoteDataJob" message="tns:RemoteDataJob" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IjobProcessorService/UploadDataJobResponse" name="JobId" message="tns:JobId" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadHtmlJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IjobProcessorService/UploadHtmlJob" name="RemoteHtmlJob" message="tns:RemoteHtmlJob" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IjobProcessorService/UploadHtmlJobResponse" name="JobId" message="tns:JobId" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadImageJob">
+      <wsdl:input wsaw:Action="http://tempuri.org/IjobProcessorService/UploadImageJob" name="RemoteImageJob" message="tns:RemoteImageJob" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IjobProcessorService/UploadImageJobResponse" name="JobId" message="tns:JobId" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IjobProcessorService" type="tns:IjobProcessorService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetJobStatus">
+      <soap:operation soapAction="http://tempuri.org/IjobProcessorService/GetJobStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadFile">
+      <soap:operation soapAction="http://tempuri.org/IjobProcessorService/DownloadFile" style="document" />
+      <wsdl:input name="DownloadRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="RemoteFileInfo">
+        <soap:header message="tns:RemoteFileInfo_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteFileInfo_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadWordJob">
+      <soap:operation soapAction="http://tempuri.org/IjobProcessorService/UploadWordJob" style="document" />
+      <wsdl:input name="RemoteWordJob">
+        <soap:header message="tns:RemoteWordJob_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteWordJob_Headers" part="Length" use="literal" />
+        <soap:header message="tns:RemoteWordJob_Headers" part="WordEnvelope" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="JobId">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadExcelJob">
+      <soap:operation soapAction="http://tempuri.org/IjobProcessorService/UploadExcelJob" style="document" />
+      <wsdl:input name="RemoteExcelJob">
+        <soap:header message="tns:RemoteExcelJob_Headers" part="ExcelEnvelope" use="literal" />
+        <soap:header message="tns:RemoteExcelJob_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteExcelJob_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="JobId">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadPowerPointJob">
+      <soap:operation soapAction="http://tempuri.org/IjobProcessorService/UploadPowerPointJob" style="document" />
+      <wsdl:input name="RemotePowerPointJob">
+        <soap:header message="tns:RemotePowerPointJob_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemotePowerPointJob_Headers" part="Length" use="literal" />
+        <soap:header message="tns:RemotePowerPointJob_Headers" part="PowerPointEnvelope" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="JobId">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadPdfAJob">
+      <soap:operation soapAction="http://tempuri.org/IjobProcessorService/UploadPdfAJob" style="document" />
+      <wsdl:input name="RemotePdfAJob">
+        <soap:header message="tns:RemotePdfAJob_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemotePdfAJob_Headers" part="Length" use="literal" />
+        <soap:header message="tns:RemotePdfAJob_Headers" part="PdfAEnvelope" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="JobId">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadTextJob">
+      <soap:operation soapAction="http://tempuri.org/IjobProcessorService/UploadTextJob" style="document" />
+      <wsdl:input name="RemoteTextJob">
+        <soap:header message="tns:RemoteTextJob_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteTextJob_Headers" part="Length" use="literal" />
+        <soap:header message="tns:RemoteTextJob_Headers" part="TextEnvelope" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="JobId">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadDataJob">
+      <soap:operation soapAction="http://tempuri.org/IjobProcessorService/UploadDataJob" style="document" />
+      <wsdl:input name="RemoteDataJob">
+        <soap:header message="tns:RemoteDataJob_Headers" part="DataEnvelope" use="literal" />
+        <soap:header message="tns:RemoteDataJob_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteDataJob_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="JobId">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadHtmlJob">
+      <soap:operation soapAction="http://tempuri.org/IjobProcessorService/UploadHtmlJob" style="document" />
+      <wsdl:input name="RemoteHtmlJob">
+        <soap:header message="tns:RemoteHtmlJob_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteHtmlJob_Headers" part="HtmlEnvelope" use="literal" />
+        <soap:header message="tns:RemoteHtmlJob_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="JobId">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadImageJob">
+      <soap:operation soapAction="http://tempuri.org/IjobProcessorService/UploadImageJob" style="document" />
+      <wsdl:input name="RemoteImageJob">
+        <soap:header message="tns:RemoteImageJob_Headers" part="FileName" use="literal" />
+        <soap:header message="tns:RemoteImageJob_Headers" part="ImageEnvelope" use="literal" />
+        <soap:header message="tns:RemoteImageJob_Headers" part="Length" use="literal" />
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="JobId">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="JobProcessorService">
+    <wsdl:port name="BasicHttpBinding_IjobProcessorService" binding="tns:BasicHttpBinding_IjobProcessorService">
+      <soap:address location="http://localhost:4321/JobProcessorService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SolidFrameworkService" />
+  <xs:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd4" namespace="http://schemas.microsoft.com/Message" />
+  <xs:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" />
+  <xs:element name="GetJobStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="jobid" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetJobStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SolidFrameworkService" minOccurs="0" name="GetJobStatusResult" nillable="true" type="q1:JobEnvelopeStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="JobId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteFileInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/Message" name="FileByteStream" type="q2:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FileName" nillable="true" type="xs:string" />
+  <xs:element name="Length" type="xs:long" />
+  <xs:element name="RemoteWordJob">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/Message" name="FileByteStream" type="q3:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" name="WordEnvelope" nillable="true" type="q4:PdfToWordJobEnvelope" />
+  <xs:element name="JobId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoteExcelJob">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.microsoft.com/Message" name="FileByteStream" type="q5:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" name="ExcelEnvelope" nillable="true" type="q6:PdfToExcelJobEnvelope" />
+  <xs:element name="RemotePowerPointJob">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.microsoft.com/Message" name="FileByteStream" type="q7:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" name="PowerPointEnvelope" nillable="true" type="q8:PdfToPowerPointJobEnvelope" />
+  <xs:element name="RemotePdfAJob">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.microsoft.com/Message" name="FileByteStream" type="q9:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" name="PdfAEnvelope" nillable="true" type="q10:PdfToPdfAJobEnvelope" />
+  <xs:element name="RemoteTextJob">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.microsoft.com/Message" name="FileByteStream" type="q11:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" name="TextEnvelope" nillable="true" type="q12:PdfToTextJobEnvelope" />
+  <xs:element name="RemoteDataJob">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.microsoft.com/Message" name="FileByteStream" type="q13:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" name="DataEnvelope" nillable="true" type="q14:PdfToDataJobEnvelope" />
+  <xs:element name="RemoteHtmlJob">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.microsoft.com/Message" name="FileByteStream" type="q15:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" name="HtmlEnvelope" nillable="true" type="q16:PdfToHtmlJobEnvelope" />
+  <xs:element name="RemoteImageJob">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.microsoft.com/Message" name="FileByteStream" type="q17:StreamBody" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" name="ImageEnvelope" nillable="true" type="q18:PdfToImagesJobEnvelope" />
+</xs:schema>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="WordDocumentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WordML" />
+      <xs:enumeration value="Rtf" />
+      <xs:enumeration value="Txt" />
+      <xs:enumeration value="Doc" />
+      <xs:enumeration value="DocX" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="WordDocumentType" nillable="true" type="tns:WordDocumentType" />
+  <xs:simpleType name="HeaderAndFooterMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Detect" />
+      <xs:enumeration value="Ignore" />
+      <xs:enumeration value="Remove" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HeaderAndFooterMode" nillable="true" type="tns:HeaderAndFooterMode" />
+  <xs:simpleType name="ImageAnchoringMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Automatic" />
+      <xs:enumeration value="Paragraph" />
+      <xs:enumeration value="Page" />
+      <xs:enumeration value="RemoveImages" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ImageAnchoringMode" nillable="true" type="tns:ImageAnchoringMode" />
+  <xs:simpleType name="ReconstructionMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Flowing" />
+      <xs:enumeration value="Exact" />
+      <xs:enumeration value="Continuous" />
+      <xs:enumeration value="PlainText" />
+      <xs:enumeration value="NoColumns" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ReconstructionMode" nillable="true" type="tns:ReconstructionMode" />
+  <xs:simpleType name="TextRecovery">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Automatic">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Always" />
+      <xs:enumeration value="Never">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Default">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TextRecovery" nillable="true" type="tns:TextRecovery" />
+  <xs:simpleType name="DecimalSeparator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Period" />
+      <xs:enumeration value="Comma" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DecimalSeparator" nillable="true" type="tns:DecimalSeparator" />
+  <xs:simpleType name="ThousandsSeparator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Comma" />
+      <xs:enumeration value="Period" />
+      <xs:enumeration value="Space" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ThousandsSeparator" nillable="true" type="tns:ThousandsSeparator" />
+  <xs:simpleType name="LineTerminator">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Platform" />
+      <xs:enumeration value="Windows" />
+      <xs:enumeration value="OSX" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LineTerminator" nillable="true" type="tns:LineTerminator" />
+  <xs:simpleType name="DelimiterOptions">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Comma" />
+      <xs:enumeration value="Semicolon" />
+      <xs:enumeration value="Tab" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DelimiterOptions" nillable="true" type="tns:DelimiterOptions" />
+  <xs:simpleType name="ImageDocumentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Bmp" />
+      <xs:enumeration value="Jpeg" />
+      <xs:enumeration value="Png" />
+      <xs:enumeration value="Tiff" />
+      <xs:enumeration value="Gif" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ImageDocumentType" nillable="true" type="tns:ImageDocumentType" />
+  <xs:simpleType name="HtmlImages">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Default" />
+      <xs:enumeration value="Link">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Ignore">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Embed">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HtmlImages" nillable="true" type="tns:HtmlImages" />
+  <xs:simpleType name="ImageConversionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ExtractImages" />
+      <xs:enumeration value="ExtractPages" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ImageConversionType" nillable="true" type="tns:ImageConversionType" />
+</xs:schema>

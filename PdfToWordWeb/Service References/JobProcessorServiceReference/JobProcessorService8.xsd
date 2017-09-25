@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SolidFramework.Converters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SolidFramework.Converters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="HtmlNavigation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SingleWithoutNavigation" />
+      <xs:enumeration value="SingleWithEmbeddedNavigation" />
+      <xs:enumeration value="SplitIntoMultipleFiles" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="HtmlNavigation" nillable="true" type="tns:HtmlNavigation" />
+  <xs:simpleType name="HtmlSplittingUsing">
+    <xs:list>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Pages" />
+          <xs:enumeration value="Bookmarks" />
+          <xs:enumeration value="Headings" />
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:list>
+  </xs:simpleType>
+  <xs:element name="HtmlSplittingUsing" nillable="true" type="tns:HtmlSplittingUsing" />
+</xs:schema>

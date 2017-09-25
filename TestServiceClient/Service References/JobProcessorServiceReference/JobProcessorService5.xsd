@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SolidFramework.Plumbing" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SolidFramework.Plumbing" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ValidationMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Detect" />
+      <xs:enumeration value="Pdf" />
+      <xs:enumeration value="PdfA1B" />
+      <xs:enumeration value="PdfA1A" />
+      <xs:enumeration value="PdfA2B" />
+      <xs:enumeration value="PdfA2A" />
+      <xs:enumeration value="PdfA2U" />
+      <xs:enumeration value="PdfA3B" />
+      <xs:enumeration value="PdfA3A" />
+      <xs:enumeration value="PdfA3U" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ValidationMode" nillable="true" type="tns:ValidationMode" />
+</xs:schema>
