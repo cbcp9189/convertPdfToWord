@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cf3b4660-d2d7-4e5c-aaf6-fc34a69f3908" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4321/JobProcessorService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="JobProcessorService.disco" MetadataType="Disco" ID="c5219e3c-709d-4ff8-a82c-6fc5b5fd2316" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?disco" />
+    <MetadataFile FileName="JobProcessorService.wsdl" MetadataType="Wsdl" ID="2a64410e-74b7-4327-84a4-4879f7934aa2" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?wsdl" />
+    <MetadataFile FileName="JobProcessorService.xsd" MetadataType="Schema" ID="b714d4db-09de-491f-9566-7ef5bcb1cace" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?xsd=xsd2" />
+    <MetadataFile FileName="JobProcessorService1.xsd" MetadataType="Schema" ID="e46d7190-4553-466a-86e5-e4db4aee2e89" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?xsd=xsd3" />
+    <MetadataFile FileName="JobProcessorService2.xsd" MetadataType="Schema" ID="a3df06f7-4a57-46ae-bf4e-0fb1e5114f55" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?xsd=xsd0" />
+    <MetadataFile FileName="JobProcessorService3.xsd" MetadataType="Schema" ID="8302d278-dd3a-4954-8ab1-593a66018ed7" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?xsd=xsd1" />
+    <MetadataFile FileName="JobProcessorService4.xsd" MetadataType="Schema" ID="4799204f-ef2e-486f-93b9-ea852b5cff77" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?xsd=xsd6" />
+    <MetadataFile FileName="JobProcessorService5.xsd" MetadataType="Schema" ID="71960e96-0980-48ec-a27b-d026892a256d" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?xsd=xsd7" />
+    <MetadataFile FileName="JobProcessorService6.xsd" MetadataType="Schema" ID="7443a201-cb1d-433d-bc05-2275c2ed0e27" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?xsd=xsd4" />
+    <MetadataFile FileName="JobProcessorService7.xsd" MetadataType="Schema" ID="45512747-acd1-4471-a94b-7620d10196da" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?xsd=xsd5" />
+    <MetadataFile FileName="JobProcessorService8.xsd" MetadataType="Schema" ID="3755a0b0-990d-4826-8bd5-bcf273bae021" SourceId="1" SourceUrl="http://localhost:4321/JobProcessorService?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

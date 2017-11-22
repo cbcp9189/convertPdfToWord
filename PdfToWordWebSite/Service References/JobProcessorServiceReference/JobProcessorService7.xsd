@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/JobProcessorService.JobEnvelopes" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" />
+  <xs:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SolidFramework.Plumbing" />
+  <xs:import schemaLocation="http://localhost:4321/JobProcessorService?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/SolidFramework.Converters" />
+  <xs:complexType name="PdfToWordJobEnvelope">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DetectTables" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="DocType" type="q1:WordDocumentType" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="HeadersAndFooters" type="q2:HeaderAndFooterMode" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="ImageAnchor" type="q3:ImageAnchoringMode" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="Mode" type="q4:ReconstructionMode" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="TextRecovery" type="q5:TextRecovery" />
+      <xs:element minOccurs="0" name="hellochenbo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PdfToWordJobEnvelope" nillable="true" type="tns:PdfToWordJobEnvelope" />
+  <xs:complexType name="PdfToExcelJobEnvelope">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutoDetectSeparators" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CombineTables" type="xs:boolean" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="DecimalSeperator" type="q6:DecimalSeparator" />
+      <xs:element minOccurs="0" name="NonTableContent" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="TextRecovery" type="q7:TextRecovery" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="ThousandsSeperator" type="q8:ThousandsSeparator" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PdfToExcelJobEnvelope" nillable="true" type="tns:PdfToExcelJobEnvelope" />
+  <xs:complexType name="PdfToPowerPointJobEnvelope">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DetectLists" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="TextRecovery" type="q9:TextRecovery" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PdfToPowerPointJobEnvelope" nillable="true" type="tns:PdfToPowerPointJobEnvelope" />
+  <xs:complexType name="PdfToPdfAJobEnvelope">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SolidFramework.Plumbing" minOccurs="0" name="Mode" type="q10:ValidationMode" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Searchable" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PdfToPdfAJobEnvelope" nillable="true" type="tns:PdfToPdfAJobEnvelope" />
+  <xs:complexType name="PdfToTextJobEnvelope">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CharacterEncoding" type="xs:int" />
+      <xs:element minOccurs="0" name="LineLength" type="xs:int" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="Terminator" type="q11:LineTerminator" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PdfToTextJobEnvelope" nillable="true" type="tns:PdfToTextJobEnvelope" />
+  <xs:complexType name="PdfToDataJobEnvelope">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CharacterEncoding" type="xs:int" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="Delimiter" type="q12:DelimiterOptions" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="Terminator" type="q13:LineTerminator" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PdfToDataJobEnvelope" nillable="true" type="tns:PdfToDataJobEnvelope" />
+  <xs:complexType name="PdfToHtmlJobEnvelope">
+    <xs:sequence>
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="ImageType" type="q14:ImageDocumentType" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="Images" type="q15:HtmlImages" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SolidFramework.Converters" minOccurs="0" name="Navigation" type="q16:HtmlNavigation" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SolidFramework.Converters" minOccurs="0" name="SplitUsing" type="q17:HtmlSplittingUsing" />
+      <xs:element minOccurs="0" name="WidthLimit" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PdfToHtmlJobEnvelope" nillable="true" type="tns:PdfToHtmlJobEnvelope" />
+  <xs:complexType name="PdfToImagesJobEnvelope">
+    <xs:sequence>
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="ConversionType" type="q18:ImageConversionType" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SolidFramework.Converters.Plumbing" minOccurs="0" name="ImageType" type="q19:ImageDocumentType" />
+      <xs:element minOccurs="0" name="PageDPI" type="xs:int" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PdfToImagesJobEnvelope" nillable="true" type="tns:PdfToImagesJobEnvelope" />
+</xs:schema>
