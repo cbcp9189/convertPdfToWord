@@ -1,8 +1,10 @@
 ﻿using MySql.Data.MySqlClient;
+using PdfToWordWebSite.constant;
 using PdfToWordWebSite.Models;
 using PdfToWordWebSite.util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -14,39 +16,42 @@ namespace PdfToWordWebSite.Controllers
     {
         // GET api/<controller>
         [HttpGet]
-        public Response Get(long docId, int docType, int userId)
+        public Response Get(long docId, int docType, int userId, String pdfPath)
         {
             Result r = new Result();
             try
             {
                 JobProcessorServiceReference.IjobProcessorServiceClient serviceClient = new JobProcessorServiceReference.IjobProcessorServiceClient();
-                using (var db = SugarDao.GetInstance())
+                LogHelper.WriteLog(typeof(convertController), pdfPath);
+                if (pdfPath.StartsWith(SystemConstant.OPT_PATH))
                 {
-                    MySqlParameter param0 = new MySqlParameter("doc_id", docId);
-                    MySqlParameter param1 = new MySqlParameter("doc_type", docType);
-                    MySqlParameter[] paramArray = new MySqlParameter[2];
-                    paramArray[0] = param0;
-                    paramArray[1] = param1;
-                    List<PdfStream> list = db.SqlQuery<PdfStream>("select * from pdf_stream where doc_id=@doc_id and doc_type=@doc_type", paramArray);
-                    if (list != null)
-                    {
-                        String pdfPath = "";
-                        foreach (PdfStream pdfInfo in list)
-                        {
-                            pdfPath = PathUtil.getAbsolutePdfPath(pdfInfo.pdf_path, pdfInfo.doc_type);
-                            LogHelper.WriteLog(typeof(convertController), pdfPath);
-                            //pdfPath = pdfPath.Replace("/", @"\");
-                            //LogHelper.WriteLog(typeof(convertController), pdfPath);
-                        }
-                        r.JobId = serviceClient.convertWordJob(pdfPath);
-                    }
+                    pdfPath = pdfPath.Replace(SystemConstant.OPT_PATH, "");
+                }
+                String local = Path.Combine(SystemConstant.NORMAL_PATH, pdfPath);
+                String remotePath = Path.Combine(SystemConstant.REMOTE_PDF_PATH, Path.GetFileName(pdfPath));
+                LogHelper.WriteLog(typeof(convertController), remotePath+"-"+local);
+
+                bool isExist = Ftp.checkFile(local);
+                if (!isExist)
+                {
+                    LogHelper.WriteLog(typeof(convertController), "服务器文件不存在");
+                    
+                }
+                bool isSuccess = Ftp.donwload(remotePath, local);
+                if (!isSuccess)
+                {
+                    LogHelper.WriteLog(typeof(convertController), "下载失败");
+                }
+                else
+                {
+                    r.JobId = serviceClient.convertWordJob(remotePath);
                 }
                 //r.JobId = serviceClient.convertWordJob(@"D:\solid\hellob.PDF");
             }
             catch (Exception ex)
             {
                 LogHelper.WriteLog(typeof(convertController), "convert error");
-                LogHelper.WriteLog(typeof(convertController), ex.Message);
+                LogHelper.WriteLog(typeof(convertController), ex);
             }
             return Response.success(r);
         }
